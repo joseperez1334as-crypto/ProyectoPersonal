@@ -1,0 +1,376 @@
+/* ===========================
+   🎨 ESTILOS BASE Y HEADER
+   =========================== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+.admin-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1001; /* Para que esté sobre el contenido en móvil */
+}
+
+.admin-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.logout-button {
+  background-color: #ff5252;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #e53935;
+}
+
+/* ===========================
+   👤 CONTENEDORES DE MÓDULOS
+   =========================== */
+.gestion-usuarios,
+.inventario-container,
+.ventas-container,
+.compras-container, /* Añadido por si acaso */
+.reportes-container { /* Añadido por si acaso */
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ventas-container {
+  max-width: 600px;
+}
+
+/* Títulos de sección (h2) */
+.gestion-usuarios h2,
+.inventario-container h2,
+.ventas-container h2,
+.compras-container h2,
+.reportes-container h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a73e8;
+  border: none;
+  border-left: 4px solid #1a73e8;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+/* ===========================
+   📝 FORMULARIOS GLOBALES
+   =========================== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input,
+form select,
+form button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form button {
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form button:hover {
+  background-color: #155ab6;
+}
+
+/* Formulario vertical específico (ej. ventas) */
+.venta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===========================
+   📊 TABLAS GLOBALES
+   =========================== */
+
+/* REGLA GLOBAL DE TABLA (CORREGIDA) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  /* (Se eliminó 'display: block' y 'overflow-x: auto') */
+}
+
+/* CONTENEDOR DE TABLA (Para scroll) */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.table-container table {
+  min-width: 550px; /* Ancho mínimo para forzar scroll si es necesario */
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  color: #333;
+}
+
+.table-container tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Botones de acción (Editar/Eliminar) */
+.table-container button {
+  padding: 6px 10px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.table-container .editar {
+  background-color: #22c55e;
+  color: white;
+}
+.table-container .editar:hover {
+  background-color: #16a34a;
+}
+.table-container .eliminar {
+  background-color: #ef4444;
+  color: white;
+}
+.table-container .eliminar:hover {
+  background-color: #dc2626;
+}
+form {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si es necesario */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   💻 LAYOUT DE ESCRITORIO (768px y más)
+   =========================== */
+/* ===========================
+   💻 LAYOUT DE ESCRITORIO (768px y más)
+   =========================== */
+@media (min-width: 768px) {
+
+  .admin-body-wrapper {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999 !important; /* 👈 VALOR MUY ALTO para asegurar prioridad */
+  }
+
+  .admin-body-wrapper .menu-container {
+    flex-shrink: 0; 
+    margin: 0;
+    padding: 0;
+  }
+
+  .admin-content {
+   position: relative; /* Asegura que el z-index del menú gane */
+  z-index: 1; /* Le damos un z-index bajo */
+  padding: 10px;
+  min-width: 0;
+  }
+}
+
+
+/* ===========================
+   📱 LAYOUT DE MÓVIL (767px y menos)
+   =========================== */
+/* ===========================
+   📱 LAYOUT DE MÓVIL (767px y menos)
+   =========================== */
+@media (max-width: 767px) {
+
+  /* --- Header Móvil --- */
+  .admin-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .admin-header h1 {
+    font-size: 1.4rem;
+  }
+  .logout-button {
+    width: 100%;
+  }
+
+  /* --- Layout Móvil (Barra Inferior) --- */
+  .admin-body-wrapper {
+    flex-direction: column; 
+    padding-bottom: 60px; /* Espacio para la barra fija */
+  }
+
+  .admin-body-wrapper .menu-container {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.08);
+    z-index: 1000; 
+  }
+  
+  .admin-content {
+    padding: 10px;
+    min-width: 0; 
+  }
+  
+  /* --- Contenido Móvil --- */
+  .gestion-usuarios,
+  .inventario-container,
+  .ventas-container {
+    padding: 15px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box; 
+    box-shadow: none; 
+  }
+  
+  .gestion-usuarios h2,
+  .inventario-container h2,
+  .ventas-container h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    border-left: none;
+    border-bottom: 2px solid #1a73e8;
+    padding-left: 0;
+    padding-bottom: 5px;
+  }
+
+  /* --- CORRECCIÓN FINAL PARA MOSTRAR LABELS Y FORMS --- */
+
+  .crear-usuario-form .form-input-wrapper {
+    /* CLAVE: En desktop, por defecto, los campos se pondrán en una fila de 10px de gap. */
+    width: 100%; /* Ocupa el 100% por defecto (una columna por fila) */
+    margin-bottom: 0px; 
+    /* Si quieres dos columnas por fila en desktop, cambiarías width: 49%; */
+}
+  
+  /* 1. La regla para las etiquetas (AHORA DENTRO DEL MEDIA) */
+  .crear-usuario-form label {
+    display: block !important; 
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* 2. Formularios en móvil */
+  form {
+    flex-direction: column;
+  }
+  form input,
+  form select,
+  form button {
+    width: 100%;
+  }
+
+  /* --- Tablas en móvil --- */
+  .table-container {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .table-container th,
+  .table-container td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+/* --- Estilos para Inputs del Formulario (Todos los tipos) --- */
+.crear-usuario-form input[type="text"],
+.crear-usuario-form input[type="email"],
+.crear-usuario-form input[type="password"],
+.crear-usuario-form select {
+    width: 100% !important; 
+    box-sizing: border-box; 
+    padding: 0.85rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* styles/AdminDashboard.css (Añadir al final) */
+
+.tabs-nav button {
+  padding: 10px 15px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px 4px 0 0;
+  background: #f1f1f1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tabs-nav button.active {
+  background: #fff;
+  border-bottom: 1px solid #fff; /* Para que parezca que está conectada al contenido */
+  font-weight: bold;
+  color: #1a73e8;
+}

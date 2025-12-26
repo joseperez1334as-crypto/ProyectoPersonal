@@ -1,0 +1,144 @@
+/* ===========================
+   ESTILOS EXCLUSIVOS PARA LOGIN
+   =========================== */
+
+/* --- Contenedor Principal (Wrapper) --- */
+.login-wrapper {
+  /* Estilos de la Tarjeta */
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+  color: #333333;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-sizing: border-box;
+
+  /* --- Centrado y Ancho (Desktop) --- */
+  max-width: 420px; 
+  width: 90%; 
+  margin: 3rem auto; /* Centra horizontalmente */
+  
+  /* Centra el logo */
+  text-align: center; 
+}
+
+/* --- Logo --- */
+.login-wrapper .login-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 2rem; /* Espacio debajo del logo */
+}
+
+/* --- Grupos del Formulario --- */
+.login-wrapper .form-group {
+  margin-bottom: 1.25rem;
+  width: 100%; /* <--- ¡ESTA ES LA LÍNEA QUE FALTA! */
+}
+
+/* --- Etiquetas (Correo, Contraseña) --- */
+.login-wrapper .form-group label {
+  text-align: left;
+  display: block; 
+  margin-bottom: 0.5rem; 
+  font-weight: 600;
+  color: #333; 
+}
+
+
+
+/* --- Contenedor del Icono de Contraseña --- */
+.login-wrapper .password-wrapper {
+  position: relative;
+  width: 100%; 
+}
+
+.login-wrapper input#password {
+  width: 100%; 
+  padding-right: 50px; /* Espacio para el icono */
+  box-sizing: border-box; 
+}
+
+/* --- Botón del Icono (Ojo) --- */
+.login-wrapper .toggle-password {
+  position: absolute;
+  top: 50%; 
+  right: 10px; 
+  transform: translateY(-50%); 
+  width: auto !important; 
+  background: none !important; 
+  padding: 0 !important; 
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.login-wrapper .toggle-password img {
+  width: 24px !important; 
+  height: 24px !important;
+  display: block !important;
+}
+
+/* --- Botón de "Iniciar Sesión" --- */
+.login-wrapper .button-group {
+  margin-top: 1.5rem;
+}
+
+/* --- Estilos para Inputs del Formulario --- */
+.login-wrapper .form-group input {
+  width: 100%;
+  box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  
+  /* Añadimos un padding-right más grande para que no choque con el icono del ojo */
+  /* Esta regla solo aplica al input con id 'password' */
+}
+.login-wrapper input#password {
+  padding-right: 50px !important;
+}
+
+
+/* --- Estilos para el Botón de Login --- */
+.login-wrapper .button-group {
+  /* Esto asegura que el div que contiene el botón ocupe el 100% */
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.login-wrapper .button-group button {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #a78bfa; /* Morado claro (como en tu foto) */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.login-wrapper .button-group button:hover:not(:disabled) {
+  background-color: #8b5cf6; /* Morado más oscuro */
+}
+
+.login-wrapper .button-group button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Estilos para Inputs del Formulario (Regla Específica) --- */
+.login-wrapper input[type="email"],
+.login-wrapper input[type="password"] {
+  /* ¡LA REGLA CLAVE! */
+  width: 100% !important; /* <--- AÑADE !important AQUÍ */
+
+  /* --- Estilos visuales --- */
+  box-sizing: border-box; /* Impide que el padding rompa el ancho */
+  padding: 0.85rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
